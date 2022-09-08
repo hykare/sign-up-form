@@ -307,7 +307,21 @@ template {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+@font-face {
+  font-family: NorseBold;
+  src: url("assets/Norse-Bold.otf");
+}
 :root {
+  font-family: arial, sans-serif;
   font-size: 16px;
   height: 100%;
 }
@@ -324,7 +338,8 @@ body {
 }
 
 #logo-section {
-  background-color: blueviolet;
+  background-image: url("assets/photo-1591795084341-6c4e176ed972.avif");
+  background-size: cover;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -341,39 +356,123 @@ body {
 }
 
 #logo-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.424), rgba(0, 0, 0, 0));
+  padding: 1rem;
   display: flex;
   justify-content: center;
 }
 
 #logo {
-  width: 10rem;
-  height: 5rem;
-  background-color: white;
+  height: 8rem;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+#logo img {
+  height: 100%;
+  background-image: url("assets/odin-lined.png");
+  background-size: contain;
+}
+#logo span {
+  font-size: 7rem;
+  font-family: NorseBold;
 }
 
 main {
-  background-color: rgb(224, 215, 234);
+  background-color: rgb(235, 231, 240);
   flex: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
-main > * {
-  padding-left: 2rem;
+main > :first-child {
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1em;
+}
+main > :nth-child(2) {
+  background-color: white;
+}
+main button {
+  background-color: #627d4b;
+  color: white;
+  font-weight: bold;
+  margin-top: 1em;
+  padding: 0.9em 2em;
+  border-radius: 0.7em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.main-items {
+  margin-left: clamp(2rem, 6vw, 15rem);
+  margin-right: 5vw;
+  max-width: 35rem;
+}
+
+main:before, main:after {
+  content: "";
+  margin: auto;
 }
 
 form {
-  background-color: white;
-  height: 12rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 1rem;
+  font-size: 0.9rem;
+}
+form label {
+  margin-bottom: 0.2em;
+}
+form input {
+  font-size: 1rem;
+  padding: 0.2em 0.5em;
+  border: 1px solid #bbb;
+  border-radius: 0.2em;
+}
+form input:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+form input:focus-visible {
+  outline: 1px solid rgb(0, 179, 255);
+}
+form input:invalid {
+  outline: 1px solid rgb(255, 42, 14);
+}
+form input:focus + p {
+  visibility: visible;
+}
+form input:invalid + p {
+  color: red;
+  visibility: visible;
+}
+form input:focus:invalid + p {
+  color: rgb(47, 47, 47);
+}
+form p {
+  color: rgb(47, 47, 47);
+  margin: 0.4em 0 0 0;
+  visibility: hidden;
+}
+form > div {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+}
+
+.accent-text {
+  font-weight: bold;
+  color: #627d4b;
 }
 
 footer {
-  background-color: rgb(74, 74, 74);
+  background-color: rgb(49, 49, 49);
   height: 4rem;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   #content {
     flex-direction: column;
   }
